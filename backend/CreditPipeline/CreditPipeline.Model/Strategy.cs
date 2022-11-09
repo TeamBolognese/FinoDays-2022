@@ -29,4 +29,22 @@ public class Strategy : Entity
     /// Максимальная сумма
     /// </summary>
     public double MaxSumma { get; set; }
+
+    /// <summary>
+    /// Метрики стратегии
+    /// </summary>
+    public virtual ICollection<StrategyMetricRelation> StrategyMetricRelations { get; set; } =
+        new List<StrategyMetricRelation>();
+    
+    /// <summary>
+    /// Заявки стратегии
+    /// </summary>
+    public virtual ICollection<Request> Requests { get; set; } =
+        new List<Request>();
+    
+    /// <summary>
+    /// История изменений стратегии
+    /// </summary>
+    public virtual ICollection<StrategyHistory> StrategyHistories { get; set; } =
+        new List<StrategyHistory>();
 }

@@ -14,4 +14,10 @@ public class Metric : Entity
     /// Необработанные данные метрики
     /// </summary>
     public string Raw { get; set; } = string.Empty;
+    
+    /// <summary>
+    /// Стратегии метрики
+    /// </summary>
+    public virtual ICollection<StrategyMetricRelation> StrategyMetricRelations { get; set; } =
+        new List<StrategyMetricRelation>();
 }

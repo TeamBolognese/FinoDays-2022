@@ -8,7 +8,7 @@ public class StrategyMetricRelation : Entity
     /// <summary>
     /// Идентификатор стратегии
     /// </summary>
-    public int StrategyId { get; set; }
+    public Guid StrategyId { get; set; }
     
     /// <summary>
     /// Стратегия
@@ -18,7 +18,7 @@ public class StrategyMetricRelation : Entity
     /// <summary>
     /// Идентификатор метрики
     /// </summary>
-    public int MetricId { get; set; }
+    public Guid MetricId { get; set; }
     
     /// <summary>
     /// Метрика
