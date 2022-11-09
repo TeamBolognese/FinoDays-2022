@@ -5,7 +5,6 @@ class User {
     string Name
     string Login
     string Password
-    UserRole Role
 }
 
 class StrategyHistory {
@@ -22,9 +21,9 @@ class Strategy {
     /' Мин ставка по кредиту '/
     double MinDept
     /' Мин рейтинг для неодобрения заявки'/
-    dobule MinDivorce
+    double MinDivorce
     double MaxPeriod
-    double maxSumma
+    double MaxSumma
 }
 
 class StrategyMetrics {
