@@ -1,0 +1,63 @@
+@startuml DataModel
+
+class User {
+    Guid id
+    string Name
+    string Login
+    string Password
+    UserRole Role
+}
+
+class StrategyHistory {
+    Guid id
+    Guid StrategyId
+    int Version
+    string Description
+    DateTime Date
+}
+
+class Strategy {
+    Guid id
+    int Version
+    /' Мин ставка по кредиту '/
+    double MinDept
+    /' Мин рейтинг для неодобрения заявки'/
+    dobule MinDivorce
+    double MaxPeriod
+    double maxSumma
+}
+
+class StrategyMetrics {
+    Guid Id
+    Guid StrategyId
+    Giid MetricId
+}
+
+class Metric {
+    Guid id
+    string Name
+    string Raw
+
+    object Eval()
+}
+
+
+class Request {
+    Guid Id
+    Guid StrategyId
+    string INN
+    double MinDept
+    double Summa
+    double Period
+    DateTime Date
+}
+
+User --> Strategy : can create
+StrategyHistory --> Strategy : has
+
+StrategyMetrics --> Strategy : has
+StrategyMetrics --> Metric : has
+
+Request --> StrategyHistory : get strategy from
+
+@enduml
