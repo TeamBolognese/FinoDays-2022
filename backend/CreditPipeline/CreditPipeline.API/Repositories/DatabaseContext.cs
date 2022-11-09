@@ -1,7 +1,7 @@
 using CreditPipeline.Model;
-
-namespace CreditPipeline.API;
 using Microsoft.EntityFrameworkCore;
+
+namespace CreditPipeline.API.Repositories;
 
 public sealed class DatabaseContext : DbContext
 {

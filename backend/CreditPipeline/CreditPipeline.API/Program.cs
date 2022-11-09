@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
 using CreditPipeline.API;
+using CreditPipeline.API.Repositories;
+using CreditPipeline.API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,9 @@ builder.Services.AddEndpointsApiExplorer();
 var connectionString = builder.Configuration.GetConnectionString("DatabaseContext");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(connectionString));
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<JwtService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
