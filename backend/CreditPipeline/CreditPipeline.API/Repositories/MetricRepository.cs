@@ -27,6 +27,7 @@ public class MetricRepository : IMetricRepository
     public async Task AddMetricsAsync(IEnumerable<Metric> metrics)
     {
         await _context.Metrics.AddRangeAsync(metrics);
+        await _context.SaveChangesAsync();
     }
 
     public async Task<Metric?> GetMetricAsync(Guid metricId)

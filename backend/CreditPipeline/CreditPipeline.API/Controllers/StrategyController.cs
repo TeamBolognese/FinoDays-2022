@@ -71,7 +71,6 @@ public class StrategyController : ControllerBase
             Name = metric.Key,
             Raw = metric.Value.ToString() ?? string.Empty,
         }).ToList();
-        
 
         await _strategyRepository.AddStrategyAsync(strategy);
         await _strategyMetricRelationRepository.AddMetricsToStrategyAsync(strategy.Id, metrics);
