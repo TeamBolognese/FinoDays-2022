@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  dpu-server:
+    image: seljmov/pipeline:latest
+    container_name: api
+    hostname: api
+    ports:
+     - 5011:5050
+    networks:
+      - own-network
+    depends_on:
+      - db
+
+  db: 
+    image: postgres:latest
+    restart: always
+    environment: 
+      - POSTGRES_DB=CreditPipeline
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 54320:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks: 
+      - nw
+volumes:
+  db:
+    driver: local
+networks:
+  own-network: 
+    driver: bridge

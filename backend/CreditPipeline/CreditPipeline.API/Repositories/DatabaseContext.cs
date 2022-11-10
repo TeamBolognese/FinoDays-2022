@@ -59,6 +59,7 @@ public sealed class DatabaseContext : DbContext
         modelBuilder.Entity<Strategy>(entity =>
         {
             entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired();
             entity.Property(e => e.Version).IsRequired();
             entity.Property(e => e.MinDept).IsRequired();
             entity.Property(e => e.MinDivorce).IsRequired();

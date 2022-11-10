@@ -24,6 +24,11 @@ public class MetricRepository : IMetricRepository
         return entityEntry.Entity;
     }
 
+    public async Task AddMetricsAsync(IEnumerable<Metric> metrics)
+    {
+        await _context.Metrics.AddRangeAsync(metrics);
+    }
+
     public async Task<Metric?> GetMetricAsync(Guid metricId)
     {
         return await _context.Metrics.FirstOrDefaultAsync(m => m.Id == metricId);

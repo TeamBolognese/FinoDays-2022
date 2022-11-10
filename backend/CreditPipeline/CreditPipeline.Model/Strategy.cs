@@ -6,6 +6,11 @@ namespace CreditPipeline.Model;
 public class Strategy : Entity
 {
     /// <summary>
+    /// Наименование стратегии
+    /// </summary>
+    public string Name { get; set; } = string.Empty;
+    
+    /// <summary>
     /// Версия стратегии
     /// </summary>
     public int Version { get; set; }
