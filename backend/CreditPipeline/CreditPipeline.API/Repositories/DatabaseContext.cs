@@ -32,6 +32,11 @@ public sealed class DatabaseContext : DbContext
     /// </summary>
     public DbSet<Metric> Metrics { get; set; } = null!;
 
+    /// <summary>
+    /// Заявки
+    /// </summary>
+    public DbSet<Request> Requests { get; set; } = null!;
+
     #endregion
     
     public DatabaseContext() { }

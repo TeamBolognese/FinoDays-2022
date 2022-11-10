@@ -17,6 +17,7 @@ builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(conn
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IMetricRepository, MetricRepository>();
 builder.Services.AddSingleton<JwtService>();
 
 builder.Services.AddControllers();
